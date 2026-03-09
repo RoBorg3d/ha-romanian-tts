@@ -1,0 +1,22 @@
+services:
+  casandra-tts:
+    image: daswer123/xtts-api-server:latest
+    container_name: casandra-tts
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    ports:
+      - "8020:8020"
+    volumes:
+      - ./xtts_models:/app/xtts_models 
+      - ./speakers:/app/speakers
+      - ./output_tts:/app/output
+      - ./server.py:/app/server.py
+    environment:
+      - COQUI_TOS_AGREED=1
+    entrypoint: ["python3", "/app/server.py"]
+    restart: unless-stopped
