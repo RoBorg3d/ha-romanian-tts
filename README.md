@@ -1,5 +1,5 @@
 Documentație: Integrare Romanian TTS (Local Voice Cloning) pentru Home Assistant
-Această integrare modernă (Generația 2 / Config Flow) conectează Home Assistant la un server local Docker care rulează modelul AI eduardem/xtts-v2-romanian. Permite clonarea vocală (Inna, Casandra etc.) și funcționează 100% offline, oferind control prin interfața vizuală nativă.
+Această integrare modernă (Generația 2 / Config Flow) conectează Home Assistant la un server local Docker care rulează modelul AI eduardem/xtts-v2-romanian. Permite clonarea vocală pe baza unui fisier wav exemplu cu vocea model și funcționează 100% offline, oferind control prin interfața vizuală nativă.
 
 1. Arhitectura Sistemului
 Backend (Docker): Un server Python/FastAPI care ține modelul XTTSv2 în memorie VRAM (accelerare GPU) pentru latență minimă.
