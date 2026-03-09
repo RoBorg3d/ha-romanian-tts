@@ -1,6 +1,6 @@
 Acest ghid te va ajuta să pornești serverul care generează vocile (creierul asistentului tău) folosind Docker. Serverul va rula local pe calculatorul tău, păstrând totul 100% privat.
 
-💻 Cerințe de Sistem (Foarte Important!)
+Cerințe de Sistem
 Deoarece generarea de voce prin Inteligență Artificială (modelul XTTS-v2) este un proces complex, ai nevoie de o placă video dedicată pentru ca asistentul să îți răspundă rapid (în 1-2 secunde). Dacă rulezi pe procesor (CPU), o propoziție poate dura zeci de secunde.
 
 Cerințe Minime Hardware:
@@ -11,7 +11,7 @@ Memorie Video (VRAM): Minim 6 GB VRAM (8 GB sau mai mult este recomandat pentru 
 
 Drivere: Driverele NVIDIA trebuie să fie actualizate la zi pe calculatorul tău.
 
-🛠️ Pasul 1: Instalarea Docker Desktop
+Pasul 1: Instalarea Docker Desktop
 Docker este programul care ne permite să rulăm serverul AI într-o "cutie" izolată (container), fără să instalăm zeci de programe complexe direct în Windows.
 
 Descarcă Docker Desktop de pe site-ul oficial: https://www.docker.com/products/docker-desktop/
@@ -20,7 +20,7 @@ Instalează programul lăsând setările implicite (asigură-te că opțiunea WS
 
 După instalare, deschide Docker Desktop și lasă-l să ruleze în fundal (vei vedea iconița cu balena verde/albastră în bara de jos).
 
-📂 Pasul 2: Pregătirea Fișierelor și a Vocilor
+Pasul 2: Pregătirea Fișierelor și a Vocilor
 Descarcă acest proiect de pe GitHub (folosind butonul verde Code -> Download ZIP) și extrage folderul undeva pe calculatorul tău (ex: C:\Romanian-TTS).
 
 Intră în folderul extras (unde se află fișierele Dockerfile și main.py).
@@ -31,7 +31,7 @@ Pune în acel folder fișierele tale audio de referință (.wav).
 
 Sfat: Fișierele trebuie să aibă 5-8 secunde, să fie foarte clare și să nu aibă absolut deloc zgomot de fundal! (ex: inna.wav, casandra.wav).
 
-⚙️ Pasul 3: Construirea Containerului (Build)
+Pasul 3: Construirea Containerului (Build)
 Acum vom crea containerul care conține modelul AI.
 
 Deschide un terminal (Apasă pe Start în Windows, scrie cmd și deschide Command Prompt).
@@ -46,7 +46,7 @@ DOS
 docker build -t romanian-tts-server .
 (Nu uita punctul . de la final, este foarte important!)
 
-▶️ Pasul 4: Pornirea Serverului
+Pasul 4: Pornirea Serverului
 Odată ce construcția s-a terminat cu succes, e timpul să pornim motorul!
 
 Rulează această comandă în terminal (asigură-te că ești tot în folderul proiectului). Comanda îi spune Docker-ului să folosească placa ta video (--gpus all) și să lege folderul tău voices de server:
@@ -59,10 +59,10 @@ Pentru utilizatorii de Linux / Mac / WSL:
 
 Bash
 docker run -d --name ro_tts_server --gpus all -p 8020:8020 -v "$(pwd)/voices:/app/voices" romanian-tts-server
-✅ Pasul 5: Testarea Serverului
+Pasul 5: Testarea Serverului
 Serverul tău rulează acum în fundal! La prima cerere va descărca modelul AI (aprox. 1.8 GB), deci prima generare va dura un pic mai mult.
 
 Ca să verifici dacă funcționează și dacă a găsit corect vocile tale, deschide un browser de internet și accesează:
-👉 http://localhost:8020/voices/
+http://localhost:8020/voices/
 
 Dacă pe ecran îți apare un text de tipul [{"voice_id": "inna.wav", "name": "Inna"}], felicitări! 🎉 Serverul tău local de Inteligență Artificială este funcțional și pregătit să comunice cu Home Assistant!
