@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Conectare Server TTS Local",
+        "description": "Introdu URL-ul de bază al serverului Docker (ex: http://192.168.1.X:8020)",
+        "data": {
+          "url": "Adresa Serverului (URL)"
+        }
+      },
+      "select_voice": {
+        "title": "Alege Vocea Implicită",
+        "description": "Succes! Am găsit vocile pe server. Selectează vocea principală din meniu.",
+        "data": {
+          "voice": "Vocea Asistentului"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nu m-am putut conecta la server. Verifică IP-ul și portul.",
+      "unknown": "A apărut o eroare neașteptată."
+    },
+    "abort": {
+      "already_configured": "Acest server este deja configurat în sistem."
+    }
+  }
+}
